@@ -27,6 +27,7 @@
     {{ if .RSSLink }}
     <link href="{{ .RSSLink | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
+    {{ partial "head_highlightjs" . }}
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
     {{ partial "head_custom.html" . }}

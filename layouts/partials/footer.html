@@ -1,4 +1,5 @@
   <footer>
+  {{ partial "footer_highlightjs" . }}
   {{ partial "foot_custom.html" . }}
   {{ with .Site.Params.footer }}
   <hr>
@@ -6,5 +7,6 @@
   {{ end }}
   </footer>
   </article>
+  {{ template "_internal/google_analytics.html" . }}
   </body>
 </html>
