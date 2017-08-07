@@ -57,8 +57,8 @@ h3, h4, h5, h6 {
 }
 
 blockquote {
-  margin: 40px 0px;
-  padding: 0 20px;
+  margin: 1em 0;
+  padding: 0 2em;
   border-left: 3px solid #ddd;
 }
 
@@ -156,7 +156,7 @@ hr {
 body {
   width: 960px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 30px 0;
 }
 
 .masthead {
@@ -170,7 +170,7 @@ body {
   padding: 32px 10px 20px 50px;
   margin-left: 260px;
   border-left: 3px solid black;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
 }
 
 /* Masthead */
