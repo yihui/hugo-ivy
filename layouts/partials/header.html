@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ if eq .URL "/" }}
+    <title>{{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:type" content="website">
+    {{ else }}
+    <title>{{ .Title }}{{ with .Params.subtitle }} - {{ . }} {{ end }} - {{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+    {{ end }}
+
+    {{ if eq .URL "/" }}
+    <meta property="description" content="{{ .Site.Params.description }}">
+    {{ else }}
+      {{ if .Description }}
+      <meta property="description" content="{{ .Description }}">
+      {{ end }}
+    {{ end }}
+
+    {{ if .Keywords }}
+    <meta property="keywords" content ="{{ delimit .Keywords ", " }}">
+    {{ end }}
+
+    {{ if .RSSLink }}
+    <link href="{{ .RSSLink | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ end }}
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    {{ partial "head_custom.html" . }}
+  </head>
+
+  <body>
+    <header class="masthead">
+      {{ partial "tagline.html" . }}
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        {{ $currentPage := . }}
+        {{ $section := replaceRE "^/([^/]+)/.*" "$1" .URL }}
+        {{ range (default .Site.Menus.main (index .Site.Menus $section)) }}
+        <li class="{{ if eq .URL $currentPage.URL }}active{{ end }}"><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      {{ if not .IsHome }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
+      {{ if .Params.date }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
+      <hr>
+      {{ end }}
+      </header>

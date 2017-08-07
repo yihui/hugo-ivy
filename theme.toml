@@ -1,0 +1,17 @@
+name = "Ivy"
+license = "Unlicense"
+licenselink = "https://github.com/yihui/hugo-ivy/blob/master/LICENSE.md"
+description = "A theme ported from Ivy"
+homepage = "https://ivy.yihui.name"
+tags = ["minimal", "blog", "personal", "clean", "simple", "minimalist"]
+features = ["blog"]
+min_version = "0.18"
+
+[author]
+  name = "Yihui Xie"
+  homepage = "https://yihui.name"
+
+[original]
+    author = "dmulholland"
+    homepage = "http://mulholland.xyz/docs/ivy/"
+    repo = "https://github.com/dmulholland/ivy"
