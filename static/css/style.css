@@ -155,15 +155,15 @@ body {
 }
 
 .masthead {
-  width: 360px;
-  padding: 20px 50px;
+  width: 260px;
+  padding: 20px 50px 20px 10px;
   float: left;
 }
 
 .main {
-  width: 600px;
-  padding: 32px 50px 20px;
-  margin-left: 360px;
+  width: 700px;
+  padding: 32px 10px 20px 50px;
+  margin-left: 260px;
   border-left: 3px solid black;
   min-height: calc(100vh - 80px);
 }
@@ -292,22 +292,22 @@ thead, tfoot, tr:nth-child(even) {
 
   body {
     width: auto;
-    max-width: 600px;
+    max-width: 700px;
   }
 
   .masthead {
     width: auto;
     float: none;
-    padding: 20px 20px 60px;
+    padding: 20px 0 60px;
     text-align: center;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-bottom: 3px solid black;
   }
 
   .main {
     width: auto;
-    padding: 40px 40px;
+    padding: 40px 10px;
     margin-left: 0;
     border-left: none;
     min-height: auto;
