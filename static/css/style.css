@@ -74,6 +74,7 @@ pre {
   box-shadow: 5px 5px 5px #eee;
   padding: 1em;
   overflow-x: auto;
+  line-height: 1.75;
 }
 
 code {
