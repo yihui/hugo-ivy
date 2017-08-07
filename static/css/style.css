@@ -91,10 +91,6 @@ ul, ol {
   padding: 0 0 0 20px;
 }
 
-ul ul, ol ol, ul ol, ol ul {
-  margin: 10px 10px;
-}
-
 li {
   margin: 4px 0;
   padding: 0;
