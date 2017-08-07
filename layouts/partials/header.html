@@ -47,7 +47,7 @@
         <ul>
         {{ $currentPage := . }}
         {{ range (default .Site.Menus.main (index .Site.Menus $section)) }}
-        <li class="{{ if eq .URL $currentPage.URL }}active{{ end }}"><a href="{{ .URL }}">{{ .Name }}</a></li>
+        <li{{ if eq .URL $currentPage.URL }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
         {{ partial "menu_extra.html" . }}
         </ul>
