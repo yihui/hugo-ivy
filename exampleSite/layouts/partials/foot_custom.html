@@ -4,6 +4,9 @@
   <span class="nav-next">{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>{{ end }}</span>
 </nav>
 {{ end }}
+
+{{ partial "disqus.html" . }}
+
 <script src="//yihui.name/js/math-code.js"></script>
 <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 

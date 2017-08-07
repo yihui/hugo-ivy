@@ -142,6 +142,10 @@ hr {
   text-align: right;
 }
 
+.comments {
+  margin-top: 20px;
+}
+
 /* Layout */
 
 body {
