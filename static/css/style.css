@@ -88,7 +88,6 @@ pre code {
 /* Lists */
 
 ul, ol {
-  margin: 35px 0;
   padding: 0 0 0 20px;
 }
 
@@ -228,9 +227,14 @@ body {
   margin-bottom: 40px;
 }
 
-.main .subtitle {
-  font-style: italic;
+.title h3 {
+  font-weight: normal;
   text-align: center;
+}
+
+.subtitle {
+  font-size: .9em;
+  color: #666;
 }
 
 /* Footnotes */
