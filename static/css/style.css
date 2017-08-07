@@ -139,7 +139,12 @@ hr {
 }
 
 .nav-next {
+  margin-left: 1em;
   text-align: right;
+}
+
+.nav-prev {
+  margin-right: 1em;
 }
 
 .comments {
