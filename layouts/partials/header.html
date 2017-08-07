@@ -33,7 +33,8 @@
     {{ partial "head_custom.html" . }}
   </head>
 
-  <body>
+  {{ $section := replaceRE "^/([^/]+)/.*" "$1" .URL }}
+  <body class="{{ if .IsHome }}home{{ else }}{{ $section }}{{ end }}">
     <header class="masthead">
       {{ partial "tagline.html" . }}
       <nav class="menu">
@@ -45,7 +46,6 @@
         </label>
         <ul>
         {{ $currentPage := . }}
-        {{ $section := replaceRE "^/([^/]+)/.*" "$1" .URL }}
         {{ range (default .Site.Menus.main (index .Site.Menus $section)) }}
         <li class="{{ if eq .URL $currentPage.URL }}active{{ end }}"><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
