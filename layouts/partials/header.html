@@ -33,8 +33,8 @@
     {{ partial "head_custom.html" . }}
   </head>
 
-  {{ $section := replaceRE "^/([^/]+)/.*" "$1" .URL }}
-  <body class="{{ if .IsHome }}home{{ else }}{{ $section }}{{ end }}">
+  {{ $.Scratch.Set "section" (replaceRE "^/([^/]+)/.*" "$1" .URL) }}
+  <body class="{{ if .IsHome }}home{{ else }}{{ $.Scratch.Get "section" }}{{ end }}">
     <header class="masthead">
       {{ partial "tagline.html" . }}
       <nav class="menu">
@@ -46,7 +46,7 @@
         </label>
         <ul>
         {{ $currentPage := . }}
-        {{ range (default .Site.Menus.main (index .Site.Menus $section)) }}
+        {{ range (default .Site.Menus.main (index .Site.Menus ($.Scratch.Get "section"))) }}
         <li{{ if eq .URL $currentPage.URL }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
         {{ partial "menu_extra.html" . }}
