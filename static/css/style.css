@@ -132,6 +132,16 @@ hr {
   text-align: center;
 }
 
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.nav-next {
+  text-align: right;
+}
+
 /* Layout */
 
 body {

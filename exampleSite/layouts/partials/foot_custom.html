@@ -1,3 +1,9 @@
+{{ if .Section }}
+<nav class="post-nav">
+  <span class="nav-prev">{{ with .NextInSection }}<a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a>{{ end }}</span>
+  <span class="nav-next">{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>{{ end }}</span>
+</nav>
+{{ end }}
 <script src="//yihui.name/js/math-code.js"></script>
 <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
