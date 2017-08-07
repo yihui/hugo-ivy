@@ -68,7 +68,8 @@ pre, code {
   font-size: 13px;
 }
 
-pre {
+pre code {
+  display: block;
   border: 1px solid #ddd;
   box-shadow: 5px 5px 5px #eee;
   padding: 1em;
