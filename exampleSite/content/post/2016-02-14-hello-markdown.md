@@ -31,13 +31,7 @@ There are many differences in syntax between Blackfriday's Markdown and Pandoc's
 
 Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme ([hugo-xmin](https://github.com/yihui/hugo-xmin)) but there is a caveat for plain Markdown posts: you have to include math expressions in a pair of backticks (inline: `` `$ $` ``; display style: `` `$$ $$` ``), e.g., `$S_n = \sum_{i=1}^n X_i$`.^[This is because we have to protect the math expressions from being interpreted as Markdown.] For R Markdown posts, you do not need the backticks, because Pandoc can identify and process math expressions.
 
-When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the `rmd` argument of the function `blogdown::new_post()`, e.g.
-
-```r
-blogdown::new_post("Post Title", rmd = FALSE)
-```
-
-Actually I recommend you to use the RStudio addin "New Post" instead:
+When creating a new post, I recommend you to use the RStudio addin "New Post":
 
 ![RStudio addin New Post](https://bookdown.org/yihui/blogdown/images/new-post.png)
 
