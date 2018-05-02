@@ -1,0 +1,15 @@
+<nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  {{ $currentPage := . }}
+  {{ range (default .Site.Menus.main (index .Site.Menus ($.Scratch.Get "section"))) }}
+  <li{{ if eq .URL $currentPage.URL }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+  {{ end }}
+  {{ partial "menu_extra.html" . }}
+  </ul>
+</nav>
