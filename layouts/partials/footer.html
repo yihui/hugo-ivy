@@ -1,6 +1,7 @@
   <footer>
   {{ partial "foot_custom.html" . }}
-  {{ partial "footer_highlightjs" . }}
+  <script src="{{ "js/highlight.pack.js" | absURL }}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   {{ with .Site.Params.footer }}
   <hr>
   <div class="copyright">{{ . | markdownify }}</div>

@@ -45,7 +45,8 @@
     {{ if .RSSLink }}
     <link href="{{ .RSSLink | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
-    {{ partial "head_highlightjs" . }}
+	<script src="{{ "js/highlight.pack.js" | absURL }}"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
     {{ partial "head_custom.html" . }}
