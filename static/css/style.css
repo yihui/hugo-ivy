@@ -170,15 +170,15 @@ body {
 }
 
 .masthead {
-  width: 260px;
+  width: 160px;
   padding: 20px 50px 20px 10px;
   float: left;
 }
 
 .main {
-  width: 700px;
+  width: 900px;
   padding: 32px 10px 20px 50px;
-  margin-left: 260px;
+  margin-left: 160px;
   border-left: 3px solid black;
   min-height: calc(100vh - 60px);
 }
