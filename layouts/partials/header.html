@@ -30,7 +30,7 @@
 
     {{ range (findRE "<img src=\"https?://[^\"]+" .Content 1) }}
     {{ $.Scratch.Set "autoImage" true }}
-    <meta name="twitter:image" content="{{ replaceRE "<img src=\"" "" . }}">
+    <meta name="twitter:image" content="{{ replaceRE "<img src=\"" "" . | htmlUnescape }}">
     {{ end }}
     {{ with .Site.Params.twitterImage }}
     {{ if not ($.Scratch.Get "autoImage") }}
