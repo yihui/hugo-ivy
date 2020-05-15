@@ -208,14 +208,6 @@ body {
   content: "•\00a\000a0\00a0"
 }
 
-#menu-check {
-  display: none;
-}
-
-#menu-label {
-  display: none;
-}
-
 /* Main */
 
 .main .title h1 {
