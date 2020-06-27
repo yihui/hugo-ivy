@@ -1,11 +1,10 @@
 {{ partial "header.html" . }}
+{{ .Content -}}
 
-{{ .Content }}
-
-{{ if .IsHome }}
-{{ $.Scratch.Set "pages" .Site.RegularPages }}
-{{ else }}
-{{ $.Scratch.Set "pages" .Pages }}
+{{ if .IsHome -}}
+{{ $.Scratch.Set "pages" .Site.RegularPages -}}
+{{ else -}}
+{{ $.Scratch.Set "pages" .Pages -}}
 {{ end }}
 <ul>
   {{ range (where ($.Scratch.Get "pages") "Section" "!=" "") }}
