@@ -2,7 +2,7 @@
 
 {{ if .Params.show_toc }} {{ .TableOfContents }} {{ end }}
 
-{{ if (and (eq (getenv "BLOGDOWN_POST_RELREF") "") (and (and .Params.date (lt (now.AddDate 0 0 ($.Site.Params.holdDays | default -90)) .Date)) (in (string .Content) "<!--# ON_HOLD -->"))) }}
+{{ if (and (eq (getenv "HUGO_BLOGDOWN_POST_RELREF") "") (and (and .Params.date (lt (now.AddDate 0 0 ($.Site.Params.holdDays | default -90)) .Date)) (in (string .Content) "<!--# ON_HOLD -->"))) }}
 {{ (index (split .Content "<!--# ON_HOLD -->") 0) | safeHTML }}
 {{ else }}
 {{ .Content }}
