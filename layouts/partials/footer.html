@@ -3,7 +3,7 @@
   {{ partial "footer_highlightjs" . }}
   {{ with .Site.Params.footer }}
   <hr>
-  <div class="copyright">{{ . | markdownify }}</div>
+  <div class="copyright">{{ replace . "{Year}" now.Year | markdownify }}</div>
   {{ end }}
   </footer>
   </article>
