@@ -1,19 +1,34 @@
 {{ partial "header.html" . }}
 
+{{ if .Content }}
 {{ .Content }}
-
-{{ if .IsHome }}
-{{ $.Scratch.Set "pages" .Site.RegularPages }}
-{{ else }}
-{{ $.Scratch.Set "pages" .Pages }}
 {{ end }}
-<ul>
-  {{ range (where ($.Scratch.Get "pages") "Section" "!=" "") }}
+{{ if (or .Params.list_pages (not .Content)) }}
+<div class="archive">
+{{ if .Params.list_pages }}
+  {{ range .Pages.ByParam (or .Params.order_by "date" ) }}
+  <p>
+    <span>{{ .Date.Format "2006-01-02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }} {{ with .Params.subtitle }}<span class='subtitle'> &middot; {{ . }} </span>{{ end }}</a>
+  </p>
+  {{ end }}
+{{ else }}
+  {{ range .Pages.GroupByDate "2006" }}
+  <h2 class="archive-title">{{ .Key }}</h2>
+  {{ range .Pages.GroupByDate "01" }}
+  <ul>
+  {{ range .Pages }}
   <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <span>{{ .Date.Format "2006-01-02" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   </li>
   {{ end }}
-</ul>
+  </ul>
+  {{ end }}
+  {{ end }}
+{{ end }}
+
+</div>
+{{ end }}
 
 {{ partial "footer.html" . }}
