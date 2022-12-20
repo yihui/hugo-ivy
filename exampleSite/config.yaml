@@ -38,6 +38,8 @@ params:
   highlightjsVersion: "9.12.0"
 
 markup:
+  highlight:
+    codeFences: false
   goldmark:
     renderer:
       unsafe: true
