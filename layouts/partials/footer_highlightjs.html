@@ -1,12 +1,11 @@
 {{ if and (not .Params.disable_highlight) (in (string .Content) "</pre>") }}
 {{ $highVer := .Site.Params.highlightjsVersion }}
-{{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com") }}
 {{ if (not (eq $highVer "")) }}
-<script src="{{ $highCDN }}/highlight.js/{{ $highVer }}/highlight.min.js"></script>
-{{ $.Scratch.Set "highLangs" .Site.Params.highlightjsLang }}
-{{ range .Params.highlightjsLang }}{{ $.Scratch.Add "highLangs" . }}{{ end }}
-{{ range ($.Scratch.Get "highLangs") }}
-<script src="{{ $highCDN }}/highlight.js/{{ $highVer }}/languages/{{ . }}.min.js"></script>{{ end }}
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+{{ $.Scratch.Set "highJS" (print "//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@" $highVer "/build/highlight.min.js") }}
+{{ range (union .Site.Params.highlightjsLang .Params.highlightjsLang) }}
+{{ $.Scratch.Add "highJS" (print ",gh/highlightjs/cdn-release@" $highVer "/build/languages/" . ".min.js") }}
+{{ end }}
+{{ $.Scratch.Add "highJS" ",npm/@xiee/utils/js/load-highlight.js" }}
+<script src="{{ $.Scratch.Get "highJS" }}" defer></script>
 {{ end }}
 {{ end }}
