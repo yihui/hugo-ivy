@@ -33,6 +33,10 @@ body {
   line-height: 1.75;
 }
 
+h1, h2, h3 {
+  font-weight: 500;
+}
+
 h1, h2 {
   padding: 0;
   margin: 60px 0 30px;
