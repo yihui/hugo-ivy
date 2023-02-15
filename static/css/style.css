@@ -33,7 +33,7 @@ body {
   line-height: 1.75;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   padding: 0;
   margin: 60px 0 30px;
   line-height: 1.25;
@@ -42,18 +42,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 32px;
-  font-weight: normal;
 }
 
 h2 {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-h3, h4, h5, h6 {
-  font-size: 19px;
-  font-weight: bold;
-  text-align: left;
+  font-size: 28px;
 }
 
 blockquote {
@@ -224,12 +216,10 @@ body {
 }
 
 .title h3 {
-  font-weight: normal;
   text-align: center;
 }
 
 .subtitle {
-  font-size: .9em;
   color: #666;
 }
 
