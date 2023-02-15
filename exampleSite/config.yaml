@@ -7,6 +7,7 @@ disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 preserveTaxonomyNames: true
 footnotereturnlinkcontents: ↩
+enableGitInfo: true
 
 permalinks:
   note: /note/:year/:month/:day/:slug/

@@ -1,7 +1,19 @@
 {{ if not .IsHome }}
 <h1>{{ .Title }}</h1>
-{{ with .Params.subtitle }}<h1><span class="subtitle">{{ . }}</span></h1>{{ end }}
+{{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+{{ if .IsPage }}
 <h3>{{ with .Params.author }}{{ . }}{{ end }}
-{{ if .Params.date }} {{ if .Params.author }} / {{ end }} {{ .Date.Format "2006-01-02" }}{{ end }}</h3>
+{{ if .Params.date }}
+{{ $.Scratch.Set "date" (.Date.Format "2006-01-02") }}
+{{ else }}
+{{ with .Lastmod }}
+{{ $.Scratch.Set "date" (.Format "2006-01-02") }}
+{{ end }}
+{{ end }}
+{{ with $.Scratch.Get "date" }}
+{{ if $.Params.author }} / {{ end }}
+{{ . }}
+{{ end }}</h3>
+{{ end }}
 <hr>
 {{ end }}
