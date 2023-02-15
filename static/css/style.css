@@ -33,7 +33,7 @@ body {
   line-height: 1.75;
 }
 
-h1, h2, h3 {
+.title * {
   font-weight: 500;
 }
 
