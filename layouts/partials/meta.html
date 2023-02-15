@@ -2,7 +2,10 @@
 <h1>{{ .Title }}</h1>
 {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
 {{ if .IsPage }}
-<h3>{{ with .Params.author }}{{ . }}{{ end }}
+<h3>{{ with or (or .Params.author (index (or .Site.Params.author dict) .Section)) "" }}
+{{ $.Scratch.Set "author" . }}
+{{ . }}
+{{ end }}
 {{ if .Params.date }}
 {{ $.Scratch.Set "date" (.Date.Format "2006-01-02") }}
 {{ else }}
@@ -11,7 +14,7 @@
 {{ end }}
 {{ end }}
 {{ with $.Scratch.Get "date" }}
-{{ if $.Params.author }} / {{ end }}
+{{ if $.Scratch.Get "author" }} / {{ end }}
 {{ . }}
 {{ end }}</h3>
 {{ end }}
