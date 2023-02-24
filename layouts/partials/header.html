@@ -13,27 +13,29 @@
     {{ end }}
     <meta name="twitter:card" content="summary">
 
+    {{ $summary := "" }}
     {{ with .Description }}
-      {{ $.Scratch.Set "summary" (markdownify .) }}
+      {{ $summary = (markdownify .) }}
     {{ else }}
-      {{ $.Scratch.Set "summary" ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summary_length) (default " &hellip;" .Site.Params.text.truncated)) }}
+      {{ $summary = ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summary_length) (default " &hellip;" .Site.Params.text.truncated)) }}
     {{ end }}
 
     {{ if eq .RelPermalink "/" }}
     <meta property="description" content="{{ .Site.Params.description }}">
     {{ else }}
-      {{ with ($.Scratch.Get "summary") }}
+      {{ with $summary }}
       <meta property="description" content="{{ . }}">
       <meta property="og:description" content="{{ . }}">
       {{ end }}
     {{ end }}
 
+    {{ $autoImage := false }}
     {{ range (findRE "<img src=\"https?://[^\"]+" .Content 1) }}
-    {{ $.Scratch.Set "autoImage" true }}
+    {{ $autoImage = true }}
     <meta name="twitter:image" content="{{ replaceRE "<img src=\"" "" . | htmlUnescape }}">
     {{ end }}
     {{ with .Site.Params.twitterImage }}
-    {{ if not ($.Scratch.Get "autoImage") }}
+    {{ if not $autoImage }}
     <meta name="twitter:image" content="{{ absURL . }}">
     {{ end }}
     {{ end }}

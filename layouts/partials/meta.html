@@ -1,20 +1,22 @@
 {{ if not .IsHome }}
 <h1>{{ .Title }}</h1>
 {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+{{ $author := false }}
 {{ if .IsPage }}
 <h3>{{ with or (or .Params.author (index (or .Site.Params.author dict) .Section)) "" }}
-{{ $.Scratch.Set "author" . }}
+{{ $author = . }}
 {{ . }}
 {{ end }}
+{{ $date := "" }}
 {{ if .Params.date }}
-{{ $.Scratch.Set "date" (.Date.Format "2006-01-02") }}
+{{ $date = .Date.Format "2006-01-02" }}
 {{ else }}
 {{ with .Lastmod }}
-{{ $.Scratch.Set "date" (.Format "2006-01-02") }}
+{{ $date = .Format "2006-01-02" }}
 {{ end }}
 {{ end }}
-{{ with $.Scratch.Get "date" }}
-{{ if $.Scratch.Get "author" }} / {{ end }}
+{{ with $date }}
+{{ if $author }} / {{ end }}
 {{ . }}
 {{ end }}</h3>
 {{ end }}

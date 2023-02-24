@@ -1,11 +1,11 @@
 {{ if and (not .Params.disable_highlight) (in (string .Content) "</pre>") }}
 {{ $highVer := .Site.Params.highlightjsVersion }}
 {{ if (not (eq $highVer "")) }}
-{{ $.Scratch.Set "highJS" (print "//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@" $highVer "/build/highlight.min.js") }}
+{{ $highJS := (print "//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@" $highVer "/build/highlight.min.js") }}
 {{ range (union .Site.Params.highlightjsLang .Params.highlightjsLang) }}
-{{ $.Scratch.Add "highJS" (print ",gh/highlightjs/cdn-release@" $highVer "/build/languages/" . ".min.js") }}
+{{ $highJS := print $highJS ",gh/highlightjs/cdn-release@" $highVer "/build/languages/" . ".min.js" }}
 {{ end }}
-{{ $.Scratch.Add "highJS" ",npm/@xiee/utils/js/load-highlight.js" }}
-<script src="{{ $.Scratch.Get "highJS" }}" defer></script>
+{{ $highJS := print $highJS ",npm/@xiee/utils/js/load-highlight.js" }}
+<script src="{{ $highJS }}" defer></script>
 {{ end }}
 {{ end }}
