@@ -53,10 +53,11 @@
     {{ partial "head_custom.html" . }}
   </head>
 
-  {{ $.Scratch.Set "section" (replaceRE "^/([^/]+)/.*" "$1" .RelPermalink) }}
-  <body class="{{ if .IsHome }}home{{ else }}{{ $.Scratch.Get "section" }}{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
+  {{- $section := (replaceRE "^/([^/]+)/.*" "$1" .RelPermalink) -}}
+  {{ $.Scratch.Set "section" $section }}
+  <body class="{{ if .IsHome }}home{{ else }}{{ $section }}{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
     <header class="masthead">
-      {{ partial "tagline.html" . }}
+      {{ partialCached "tagline.html" . $section }}
       {{ partial "menu.html" . }}
     </header>
 
