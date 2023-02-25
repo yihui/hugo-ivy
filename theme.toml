@@ -5,7 +5,7 @@ description = "A theme ported from Ivy"
 homepage = "https://ivy.yihui.org"
 tags = ["minimal", "blog", "personal", "clean", "simple", "minimalist"]
 features = ["blog"]
-min_version = "0.18"
+min_version = "0.48"
 
 [author]
   name = "Yihui Xie"
