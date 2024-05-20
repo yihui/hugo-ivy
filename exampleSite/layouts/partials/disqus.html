@@ -1,4 +1,4 @@
-{{ if and (not (eq .Site.DisqusShortname "")) (not .Params.disable_comments) }}
+{{ if and (not (eq .Site.Config.Services.Disqus.Shortname "")) (not .Params.disable_comments) }}
 <section class="comments">
   <div id="disqus_thread"></div>
   <script>
@@ -14,7 +14,7 @@
       return iframe;
     };
     if (inIFrame()) return;
-    var disqus_js = '//{{ .Site.DisqusShortname }}.disqus.com/embed.js';
+    var disqus_js = '//{{ .Site.Config.Services.Disqus.Shortname }}.disqus.com/embed.js';
     var d = document, s = d.createElement('script');
     s.src = disqus_js; s.async = true;
     s.setAttribute('data-timestamp', +new Date());
