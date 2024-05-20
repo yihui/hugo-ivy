@@ -2,8 +2,6 @@ baseurl: /
 languageCode: en-us
 title: Hugo Ivy
 theme: hugo-ivy
-googleAnalytics: ""
-disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 preserveTaxonomyNames: true
 footnotereturnlinkcontents: ↩
