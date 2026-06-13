@@ -1,5 +1,5 @@
 baseurl: /
-locale: en-us
+locale: en-US
 title: Hugo Ivy
 theme: hugo-ivy
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
@@ -35,7 +35,13 @@ params:
   highlightjsVersion: "11.7.0"
 
 security:
-  allowContent: ['.*']
+  allowContent:
+    - '.*'
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^BLOGDOWN_'
 
 markup:
   highlight:
